@@ -44,13 +44,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [ build_and_publish ]
     steps:
-      -
-        name: Login to GitHub Container Registry
-        uses: docker/login-action@v1 
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GITHUB_TOKEN }}       
+      # We do not require authentication as package should be public !
       -
         name: check docker public images
         run: |
